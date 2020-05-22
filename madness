@@ -1,0 +1,58 @@
+#Madness-beginner
+#1 	user.txt
+
+	Run nmap as nmap <machine Ip>
+	so we see there is port 80 which webserver is running
+	open Internet Browser and enter <machine IP> in the search bar
+	View Page Source
+	there we see a file name thm.jpg (interesying)
+	download it using wget <machine IP>/thm.jpg
+	its corrupted one
+	open it and we see, it said header error
+	open file using hexeditor (preinstalled in Linux)
+	we see jpg files dont start with 0x50 0x80 
+	search for jpg file signature, we get the hex code of how jpg header looks like
+	replace first 12 hex code with this 'FF D8 FF E0 00 10 4A 46 49 46 00 01'
+	now open the picture
+	/th1s_1s_h1dd3n is the hidden directory
+	now goto the hidden directory and chech page source 
+	as it said its between 0 - 99
+	so put this '<machine IP>/th1s_1s_h1dd3n/?secret=1'
+	this worked and we cannot do this manually we can but that will take a lot of time
+	so we make a python script to this automatically
+	secret number is 73
+	we got a password y2RPJ4QaPF!B
+	this pass is used to extract hidden data from image file we download early
+	if you don't have 'steghide' install, go ahead and install it using apt-get install steghide
+	steghide extract -sf thm.jpg and enter the password
+	we got weird looking username because this is encoded in rot13
+	wbxre --> joker
+	download madness photo thats shown in tryhackme room page or use this link
+	wget https://i.imgur.com/5iW7kC8.jpg
+	steghide extract -sf 5iW7kC8.jpg
+	this does not require any password 
+	and we got the password
+
+	SSH Credentials
+	username = joker
+	password = *axA&GF8dP
+	login using ssh joker@<machine IP> and enter password
+	list file using 'ls -la', we see theres user.txt file
+	cat user.txt
+	and we got the flag
+
+	THM{d5781e53b130efe2f94f9b0354a5e4ea}
+
+#2 	root.txt
+
+	find / -type f -user root -perm -4000 -exec ls -ldb {} \; 2>>/dev/null
+	This searches for all files, owned by root, with the SUID bit set. It lists all the files that it can find, and sends error messages to /dev/null
+
+	We will see screen-4.5.0 search for it in exploit db
+	luckily we got it
+	since the machine does not have any internet connection we need to copy paste the code 
+	chmod the exploit file and run ./exploit.sh
+	and we are root
+
+	THM{5ecd98aa66a6abb670184d7547c8124a}
+	
