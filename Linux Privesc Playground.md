@@ -184,3 +184,4 @@ sudo rm $TF
 ```
 100. sudo zsh , cat /root/flag.txt
 101. sudo -u#0 /bin/bash
+
