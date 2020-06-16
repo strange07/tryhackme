@@ -148,7 +148,7 @@ scp -S $TF x y:
 ```bash
 sudo sqlite3 << EOF
 CREATE TABLE t(line TEXT);
-.import $LFILE t
+.import /root/flag.txt t
 SELECT * FROM t;
 EOF
 ```
