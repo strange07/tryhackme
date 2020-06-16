@@ -26,7 +26,7 @@ Nmap done: 1 IP address (1 host up) scanned in 35.41 seconds
 1. 3
 2. 
 ```change user-agent by firefox add-on (user agent switcher to C)
-user-agent
+user-?????
 ```
 3. 
 ```by changing user agent
