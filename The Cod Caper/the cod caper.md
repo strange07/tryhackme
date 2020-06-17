@@ -2,7 +2,7 @@
 
 [Link to room](https://tryhackme.com/room/thecodcaper)
 
-echo <machine-ip> codcaper.com >> /etc/hosts.com
+echo machine-ip codcaper.com >> /etc/hosts.com
 
 Host-Enumeration
 
