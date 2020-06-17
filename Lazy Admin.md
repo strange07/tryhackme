@@ -2,7 +2,6 @@
 
 https://tryhackme.com/room/lazyadmin
 
-##Lazy Admin 
 1. user flag
 	echo <machine-ip> lazyadmin.com >> /etc/hosts
 
