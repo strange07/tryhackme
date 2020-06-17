@@ -109,7 +109,7 @@ we got the user flag
 
 2. root flag
 
-##Privilege Escalation
+## Privilege Escalation
 ```mysql.backup
 rice : randompass
 ```
