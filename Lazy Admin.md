@@ -3,7 +3,8 @@
 https://tryhackme.com/room/lazyadmin
 
 1. user flag
-	echo <machine-ip> lazyadmin.com >> /etc/hosts
+
+echo <machine-ip> lazyadmin.com >> /etc/hosts
 
 ##Enumeration
 nmap -sC -sV -oN nmap.txt lazyadmin.com
