@@ -94,6 +94,7 @@ open terminal and execute this
 ```bash
 nc -lnvp 4444
 ``` 
+now click on the uploaded file
 and we got a shell
 
 ```bash
