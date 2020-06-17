@@ -1,12 +1,12 @@
-#Lazy Admin
+# Lazy Admin
 
-https://tryhackme.com/room/lazyadmin
+[link to room](https://tryhackme.com/room/lazyadmin)
 
 1. user flag
 
-echo <machine-ip> lazyadmin.com >> /etc/hosts
+echo machine-ip lazyadmin.com >> /etc/hosts
 
-##Enumeration
+## Enumeration
 nmap -sC -sV -oN nmap.txt lazyadmin.com
 ```nmap
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-16 04:08 EDT
