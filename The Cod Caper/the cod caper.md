@@ -130,7 +130,7 @@ go to codcaper.com/administrator.php and enter the credentials
 
 Login by ssh as pingu
 
-## LinEnum
+## LinEnum 
 
 ```bash
 scp {path to linenum} {user}@{host}:{path}. Example: scp /opt/LinEnum.sh pingu@10.10.10.10:/tmp
