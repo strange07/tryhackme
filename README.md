@@ -1,3 +1,3 @@
 # TryHackME Writeups
 
-### [tryhackme](https://tryhackme.com/)
+### [tryhackme](https://tryhackme.com)
