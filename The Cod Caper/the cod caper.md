@@ -11,7 +11,7 @@ Host-Enumeration
 Nmap scan report for 10.10.9.78
 Host is up (0.19s latency).
 Not shown: 998 closed ports
-PORT   STATE SERVICE VERSION
+PORT   STATE SERVICE VERSION 
 22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
 |   2048 6d:2c:40:1b:6c:15:7c:fc:bf:9b:55:22:61:2a:56:fc (RSA)
