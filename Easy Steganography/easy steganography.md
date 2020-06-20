@@ -2,7 +2,7 @@
 
 [Link to room](https://tryhackme.com/room/easysteganography)
 
-Download the zip file extract it 
+Download the zip file and extract it, we will get four similar images
 
 #### 1. Flag 1
 
