@@ -422,7 +422,10 @@ firefox http://advent-bucket-one.s3.amazonaws.com/employee_??????
 
 ## File Confusion
 
+![day 16 script](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day16.png)
 
+For this task you have to create a python script to automate the task
+I have already created the [script](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day16-script.py) but i encourage you to make it yourself but if you stuck than you can get the guidance from here
 
 #### How many files did you extract(excluding all the .zip files)?
 
