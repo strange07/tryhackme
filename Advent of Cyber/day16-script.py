@@ -42,6 +42,7 @@ def question2():
 		        counter += 1
 	return counter
 
+
 def question3():
 	Files = os.listdir(pathtoextract)
 	mainpath = pathtoextract
