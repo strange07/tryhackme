@@ -527,11 +527,11 @@ now lets hunt for flag
 
 put find / -name user.txt this command after the http://machine-ip/api/cmd 
 
-![day19-3]((https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-3.png)
+![day19-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-3.png)
 
 now lets cat the flag but simply concatinating the flag doesn't work so we have to encode the url 
 you can do by visiting at this site https://www.urlencoder.org/
 
-now lets enter this into url http://<machine-ip>/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt
+now lets enter this into url http://machine-ip/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt
 
 ![day19-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-4.png)
