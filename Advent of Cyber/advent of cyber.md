@@ -538,7 +538,7 @@ now lets enter this into url http://machine-ip/api/cmd/cat%20%2Fhome%2Fbestadmin
 
 ## Day 20 : Cronjob Privilege Escalation
 
-#### What port is SSH running on?
+#### 1. What port is SSH running on?
 
 ```bash
 nmap -p1-9999 10.10.251.78
@@ -554,7 +554,7 @@ PORT     STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 182.66 seconds
 ```
 
-#### Crack sam's password and read flag1.txt
+#### 2. Crack sam's password and read flag1.txt
 
 use hydra to crack sam's password
 ```bash
@@ -563,8 +563,58 @@ hydra -l sam -P ../rockyou.txt ssh://10.10.251.78 -s port
 
 ![day20-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-1.png)
 
-#### Escalate your privileges by taking advantage of a cronjob running every minute. What is flag2?
+#### 3. Escalate your privileges by taking advantage of a cronjob running every minute. What is flag2?
 
-Now if check around we see that flag2 is in ubuntu directory and there's script clean-up.sh which is definetly running by crontab now lets abuse this after putting the command in clean-up.sh then all you have to do is wait for minute
+Now if check around we see that flag2 is in ubuntu directory and there's script clean-up.sh which is definetly running by crontab now lets abuse this
 
 ![day20-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-2.png)
+
+## Day 21 : Elf Engineering
+
+Download the file and run the challenge1 as `r2 -d challenge1` this will open the binary in debugging mode and run aa to analyze the program
+
+![day21-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-1.png)
+
+Once the analyzing is done we analyze the main function by using this command `pdf @main`
+
+![day21-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-2.png)
+
+Now they have asked us three questions, 1. value of local ch , 2. value of eax imul, 3. value of local 4h before eax is 0, lets mark those memory address.
+
+![day21-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-3.png)
+
+Now, lets set a breakpoint at all those memory addresses by `db <memory address>`
+
+![day21-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-4.png)
+
+After setting a breakpoint we see a b corresponding to those memory addresses
+
+Now, lets run the program by using `dc` and we will hit a breakpoint
+
+![day21-5](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-5.png)
+
+#### What is the value of local_ch when its corresponding movl instruction is called(first if multiple)?
+
+After hitting the first breakpoint, we will check for contents of local_ch which in my case is var_ch by using `px <memory address` and we can also use reference(check the very first lines of main function)
+But we don't get the answer, for that we have to move one line forward by using `ds` and on very first address we will get the answer
+
+![day21-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-6.png)
+
+#### What is the value of eax when the imull instruction is called?
+
+lets run the program again and we will see that the breakpoint has been hit
+
+![day21-7](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-7.png)
+
+but eax is a register so we will check it by running a query `dr` but once again we have to move on line by using `ds`
+
+![day21-8](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-8.png)
+
+#### What is the value of local_4h before eax is set to 0?
+Run the program again and we will hit the second breakpoint
+
+![day21-9](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-9.png)
+
+lets move one line forward and check the contents of local_4h which also in my case is var_4h
+
+![day21-10](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-10.png)
