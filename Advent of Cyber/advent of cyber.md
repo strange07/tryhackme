@@ -565,6 +565,6 @@ hydra -l sam -P ../rockyou.txt ssh://10.10.251.78 -s port
 
 #### Escalate your privileges by taking advantage of a cronjob running every minute. What is flag2?
 
-Now if check around we see that flag2 is in ubuntu directory and there's script clean-up.sh which is definetly running by crontab now lets abuse this
+Now if check around we see that flag2 is in ubuntu directory and there's script clean-up.sh which is definetly running by crontab now lets abuse this after putting the command in clean-up.sh then all you have to do is wait for minute
 
 ![day20-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-2.png)
