@@ -593,14 +593,14 @@ Now, lets run the program by using `dc` and we will hit a breakpoint
 
 ![day21-5](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-5.png)
 
-#### What is the value of local_ch when its corresponding movl instruction is called(first if multiple)?
+#### 1. What is the value of local_ch when its corresponding movl instruction is called(first if multiple)?
 
 After hitting the first breakpoint, we will check for contents of local_ch which in my case is var_ch by using `px <memory address` and we can also use reference(check the very first lines of main function)
 But we don't get the answer, for that we have to move one line forward by using `ds` and on very first address we will get the answer
 
 ![day21-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-6.png)
 
-#### What is the value of eax when the imull instruction is called?
+#### 2. What is the value of eax when the imull instruction is called?
 
 lets run the program again and we will see that the breakpoint has been hit
 
@@ -610,7 +610,7 @@ but eax is a register so we will check it by running a query `dr` but once again
 
 ![day21-8](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-8.png)
 
-#### What is the value of local_4h before eax is set to 0?
+#### 3. What is the value of local_4h before eax is set to 0?
 Run the program again and we will hit the second breakpoint
 
 ![day21-9](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-9.png)
@@ -618,3 +618,34 @@ Run the program again and we will hit the second breakpoint
 lets move one line forward and check the contents of local_4h which also in my case is var_4h
 
 ![day21-10](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day21-10.png)
+
+## Day 22 : If Santa , then Christmas
+
+This challenge is also same as before, So i won't be telling everything in detail
+Like before lets open the if2 binary in debugging mode and analyze it and it also contains a main function. Lets have a look at it
+
+![day22-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-1.png)
+
+Now both questions ask for the values at the end of main functions, so we will set a single breakpoint at the end of main function and look at both values from there 
+
+![day22-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-2.png)
+
+To double check that breakpoint has been set we will check the main function again
+
+![day22-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-3.png)
+
+lets run the program and we will hit the execution
+
+![day22-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-4.png) 
+
+#### 1. what is the value of local_8h before the end of the main function?
+
+after hitting the breakpoint, we will check the content of local_8h
+
+![day22-5](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-5.png)
+
+#### 2. what is the value of local_4h before the end of the main function?
+
+We will check the content of local_4h
+
+![day22-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-6.png)
