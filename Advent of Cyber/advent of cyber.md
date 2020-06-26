@@ -561,7 +561,7 @@ use hydra to crack sam's password
 hydra -l sam -P ../rockyou.txt ssh://10.10.251.78 -s port
 ```
 
-![day20-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-1.png)
+![day20-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-1-updated.png)
 
 #### 3. Escalate your privileges by taking advantage of a cronjob running every minute. What is flag2?
 
