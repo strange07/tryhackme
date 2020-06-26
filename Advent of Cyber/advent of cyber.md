@@ -512,3 +512,26 @@ after that put this into imput section and press submit
 now lets wait for admin to login to the page and we will admin authid but this is unrealistic attack as this will quickly make the page unaccessible
 
 ![day18-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day18-3.png)
+
+## Day 19 : Commands
+
+we will given a webserver at port 3000 and they told us that they have found something suspicious at /api/cmd lets navigate there and see whats going on
+
+![day19-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-1.png)
+
+we will get no response but lets parse a command to check if that works
+
+![day19-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-2.png)
+
+now lets hunt for flag
+
+put find / -name user.txt this command after the http://machine-ip/api/cmd 
+
+![day19-3]((https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-3.png)
+
+now lets cat the flag but simply concatinating the flag doesn't work so we have to encode the url 
+you can do by visiting at this site https://www.urlencoder.org/
+
+now lets enter this into url http://<machine-ip>/api/cmd/cat%20%2Fhome%2Fbestadmin%2Fuser.txt
+
+![day19-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day19-4.png)
