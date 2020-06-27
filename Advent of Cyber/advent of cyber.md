@@ -649,3 +649,100 @@ after hitting the breakpoint, we will check the content of local_8h
 We will check the content of local_4h
 
 ![day22-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day22-6.png)
+
+## day 23 : LapLANd (Sql Injection)
+
+we will use burpsuite and sqlmap for this task
+capture the request in burpsuite and save it as request.txt so that we can use it in sqlmap
+![day23-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-1.png)
+![day23-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-2.png)
+#### Which field is SQL injectable? Use the input name used in the HTML code.
+
+```bash
+sqlmap -r path/to/request.txt --dbs
+```
+![day23-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-3.png)
+
+#### What is Santa Claus' email address?
+
+now that we have database lets enumerate it
+```bash
+sqlmap -r request.txt -D social --tables --batch
+```
+![day23-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-4.png)
+
+lets further enumerate users
+
+```bash
+sqlmap -r request.txt -D social -T users --column --batch
+```
+
+![day23-5](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-5.png)
+
+lets further enumerate to get username,email and passwords
+
+![day23-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-6.png)
+
+#### What is Santa Claus' plaintext password?
+
+i will skip the part of manually cracking the hash crack it online using crackstation
+
+![day23-7](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-7.png)
+
+#### Santa has a secret! Which station is he meeting Mrs Mistletoe in?
+
+check the messages of Mrs Mistletoe
+
+![day23-8](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-8.png)
+
+#### Once you're logged in to LapLANd, there's a way you can gain a shell on the machine! Find a way to do so and read the file in /home/user/
+
+Lets upload a php shell but this server has filtered out files with php extensions so lets rename it to .phtml and upload that but before that set up a listener
+
+![day23-9](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-9.png)
+
+As soon as we upload our shell we automatically got a shell
+
+![day23-10](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-10.png)
+
+![day23-11](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-11.png)
+
+![day23-12](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day23-12.png)
+
+## Elf stalk
+
+lets enumerate the machine using nmap 
+
+![day24-1](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-1.png)
+
+***we’re interested in ports 5601 (Kibana), 8000 (Logstack) and 9200 (Elastic Search).***
+
+### Find the password in the database
+
+***port 9200***
+```Elastic Search is a search engine, and that the correct way to search withits connected database is by appending /_search?q=<query> to the url```
+
+![day24-2](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-2.png)
+
+#### Read the contents of the /root.txt file
+
+***Lets check KIBANA on port 5601***
+
+![day24-3](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-3.png)
+
+By doing a quick google search `kibana 6.4.2 cve` we will find that CVE-2018–17246 which tells us that its vulnerable to LFI(local file inclusion)
+
+![day24-4](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-4.png)
+
+lets check the flag thats in root directory (/) 
+
+![day24-5](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-5.png)
+
+but this will just hang the webserver now lets check the logs
+***port 8000***
+
+![day24-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-6.png)
+
+now lets go the gibberish language and we will eventually find the flag
+
+![day24-7](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-7.png)
