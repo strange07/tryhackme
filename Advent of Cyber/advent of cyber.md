@@ -743,6 +743,6 @@ but this will just hang the webserver now lets check the logs
 
 ![day24-6](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-6.png)
 
-now lets go the gibberish language and we will eventually find the flag
+now lets go through the gibberish language and we will eventually find the flag
 
 ![day24-7](https://github.com/strange07/tryhackme/blob/master/Advent%20of%20Cyber/day24-7.png)
