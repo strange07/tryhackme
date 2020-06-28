@@ -24,7 +24,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Sun Jun 28 04:11:27 2020 -- 1 IP address (1 host up) scanned in 65.09 seconds
 ```
 
-#### Web Exploitation
+## Web Exploitation
 
 After a little research i find out a way to bypass the php filter [check out this site](https://www.php.net/manual/en/wrappers.php.php)
 
@@ -72,7 +72,7 @@ Now lets execute the shell.php by simply navigating to it
 ![dogcat-11](https://github.com/strange07/tryhackme/blob/master/Dogcat/11.png)
 ![dogcat-12](https://github.com/strange07/tryhackme/blob/master/Dogcat/12.png)
 
-#### Privilege Escalation
+## Privilege Escalation
 
 ![dogcat-13](https://github.com/strange07/tryhackme/blob/master/Dogcat/13.png)
 
@@ -84,7 +84,7 @@ Now lets execute the shell.php by simply navigating to it
 
 ![dogcat-15](https://github.com/strange07/tryhackme/blob/master/Dogcat/15.png)
 
-#### Escaping Docker
+## Escaping Docker
 
 ![dogcat-16](https://github.com/strange07/tryhackme/blob/master/Dogcat/16.png)
 
