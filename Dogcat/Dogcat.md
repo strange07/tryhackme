@@ -88,6 +88,6 @@ Now lets execute the shell.php by simply navigating to it
 
 ![dogcat-16](https://github.com/strange07/tryhackme/blob/master/Dogcat/16.png)
 
-4. What is Question 4?
+4. What is Flag 4?
 
 ![dogcat-17](https://github.com/strange07/tryhackme/blob/master/Dogcat/17.png)
